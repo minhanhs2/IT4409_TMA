@@ -1,0 +1,26 @@
+[
+    { 
+        "name": "Son 3CE Kem Velvet Lip Tint Màu Best Ever", 
+        "price": 243000, 
+        "desc": "Màu son đỏ chắc chắn không thể thiếu của 3CE và 3CE Best Ever lại mang sắc đỏ thuần, dễ đánh và hợp nhiều tông da.",
+        "image": "3CE.png"
+    },
+    { 
+        "name": "Kem chống nắng nâng tông kiềm dầu INNISFREE Tone Up No Sebum EX SPF 50+ PA++++ 60 mL", 
+        "price": 480000, 
+        "desc": "Kem chống nắng INNISFREE Tone Up No Sebum Sunscreen EX SPF 50+ PA++++ với màng lọc chống nắng vật lý...",
+        "image": "SPF50+.png"
+    },
+    { 
+        "name": "Nước Tẩy Trang Garnier Làm Sạch Sâu Micellar Cleansing Water", 
+        "price": 180000, 
+        "desc": "Tẩy sạch lớp trang điểm, bụi bẩn và bã nhờn mà không gây khô rát. Phù hợp cho mọi loại da, kể cả da nhạy cảm.",
+        "image": "Garnier.jpg"
+    },
+    { 
+        "name": "Serum Phục Hồi Da La Roche-Posay B5", 
+        "price": 650000, 
+        "desc": "Serum Hyalu B5 giúp phục hồi độ ẩm, làm dịu da và cải thiện nếp nhăn. Phù hợp cho da nhạy cảm.",
+        "image": "larocheposay-b5.jpg"
+    }
+]
