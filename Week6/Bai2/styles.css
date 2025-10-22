@@ -1,234 +1,189 @@
-/* --- Bài tập 2: CSS cho Ducky Beauty --- */
-
-/* 2. Style chung */
+/* --- Cài đặt chung cho cả trang --- */
 body {
-    font-family: Arial, sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: #FFFDF5;
-    /* Màu nền kem/đào nhạt */
-    color: #4E4E4E;
-    /* Màu chữ xám đậm */
+    font-family: Arial, sans-serif; /* Font chữ mặc định */
+    line-height: 1.6; /* Chiều cao dòng cho dễ đọc */
+    margin: 0; /* Xóa lề mặc định */
+    padding: 0; /* Xóa đệm mặc định */
+    background-color: #FFFDF5; /* Màu nền kem vàng */
+    color: #4E4E4E; /* Màu chữ chính */
 }
 
-/* Đảm bảo ảnh co dãn (responsive) */
+/* Ảnh tự co dãn theo kích thước màn hình */
 img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 8px;
-    /* Bo góc ảnh */
+    max-width: 100%; /* Không bao giờ tràn ra ngoài */
+    height: auto; /* Giữ đúng tỷ lệ */
+    border-radius: 8px; /* Bo tròn góc */
 }
 
-/* 3. Styling Header & Nav */
+/* --- Phần Header (Đầu trang) --- */
 header {
-    background: #FCEE8E;
-    /* Màu hồng phấn cho header */
-    color: #5D4037;
-    /* Màu nâu đậm */
-    padding: 1rem 5%;
-    border-bottom: 2px solid #E6C300;
+    background: #FCEE8E; /* Nền vàng nhạt */
+    color: #5D4037; /* Chữ màu nâu */
+    padding: 1rem 5%; /* Đệm trên/dưới và hai bên */
+    border-bottom: 2px solid #E6C300; /* Viền chân màu vàng đậm */
 
-    /* Kỹ thuật "hay": Dùng flexbox để căn chỉnh h1 và nav */
+    /* Dùng Flexbox để xếp logo (h1) và menu (nav) ngang hàng */
     display: flex;
-    justify-content: space-between;
-    /* Đẩy h1 và nav ra 2 phía */
-    align-items: center;
-    /* Căn giữa theo chiều dọc */
+    justify-content: space-between; /* Đẩy logo sang trái, menu sang phải */
+    align-items: center; /* Căn giữa chiều dọc */
 }
 
 header h1 {
-    margin: 0;
-    font-size: 2rem;
+    margin: 0; /* Bỏ lề mặc định của h1 */
+    font-size: 2rem; /* Kích thước chữ logo */
 }
 
-/* 4-5. Menu ngang cho Desktop */
+/* Menu điều hướng (trên desktop) */
 #thanh-dieu-huong ul {
-    display: flex;
-    list-style: none;
-    /* Bỏ dấu chấm */
+    display: flex; /* Xếp các mục menu ngang */
+    list-style: none; /* Bỏ dấu chấm tròn */
     padding: 0;
     margin: 0;
 }
 
 #thanh-dieu-huong ul li {
-    margin-left: 20px;
-    /* Khoảng cách giữa các mục menu */
+    margin-left: 20px; /* Khoảng cách giữa các mục */
 }
 
 #thanh-dieu-huong ul li a {
-    color: #5D4037;
-    text-decoration: none;
-    /* Bỏ gạch chân */
-    font-weight: bold;
+    color: #5D4037; /* Màu chữ menu */
+    text-decoration: none; /* Bỏ gạch chân */
+    font-weight: bold; /* Chữ đậm */
 }
 
-/* Ẩn nút menu mobile trên desktop */
+/* Nút hamburger (chỉ hiện trên mobile) */
 #nut-an-hien-menu {
-    display: none;
+    display: none; /* Mặc định ẩn đi */
     background: none;
     border: none;
     cursor: pointer;
     padding: 5px;
 }
 
+/* Ba dấu gạch ngang của nút hamburger */
 #nut-an-hien-menu span {
     display: block;
     width: 25px;
     height: 3px;
-    background-color: #5D4037;
+    background-color: #5D4037; /* Màu gạch */
     margin: 5px 0;
     border-radius: 2px;
 }
 
-/* Nội dung chính */
+/* --- Phần Nội dung chính --- */
 main {
-    max-width: 1200px;
-    margin: 20px auto;
-    /* Căn giữa nội dung */
-    padding: 0 20px;
+    max-width: 1200px; /* Giới hạn chiều rộng nội dung */
+    margin: 20px auto; /* Tự động căn giữa */
+    padding: 0 20px; /* Đệm hai bên */
 }
 
+/* Phần giới thiệu ngắn */
 .gioi-thieu {
-    text-align: center;
-    margin-bottom: 30px;
+    text-align: center; /* Căn giữa chữ */
+    margin-bottom: 30px; /* Khoảng cách với phần dưới */
 }
 
-/* 7. Danh sách sản phẩm (Layout Flexbox) */
+/* --- Danh sách sản phẩm --- */
 #danh-sach-san-pham h2 {
-    text-align: center;
+    text-align: center; /* Căn giữa tiêu đề "Sản phẩm" */
     width: 100%;
 }
 
-/* Container chứa các sản phẩm */
+/* Khung chứa các thẻ sản phẩm */
 #khung-chua-san-pham {
-    display: flex;
-    flex-wrap: wrap;
-    /* Cho phép rớt hàng */
-    gap: 20px;
-    /* Khoảng cách giữa các sản phẩm */
-    justify-content: center;
+    display: flex; /* Bật Flexbox để xếp các sản phẩm */
+    flex-wrap: wrap; /* Cho phép sản phẩm tự xuống hàng */
+    gap: 20px; /* Khoảng cách giữa các sản phẩm */
+    justify-content: center; /* Căn các sản phẩm ra giữa */
 }
 
-/* 9. Định dạng cho mỗi sản phẩm */
+/* Style cho từng thẻ sản phẩm */
 .product-item {
-    background: #ffffff;
-    border: 1px solid #FCEE8E;
-    /* Viền hồng nhạt */
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-    box-sizing: border-box;
-    /* Giúp padding không làm vỡ layout */
+    background: #ffffff; /* Nền trắng */
+    border: 1px solid #FCEE8E; /* Viền vàng nhạt */
+    border-radius: 8px; /* Bo góc */
+    padding: 15px; /* Đệm bên trong */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05); /* Bóng đổ nhẹ */
+    box-sizing: border-box; /* Tính cả padding/border vào kích thước */
 
-    /* Kỹ thuật "hay": flex: 0 1 30%
-     * 0 (grow): Không tự động lớn lên (sửa lỗi 1 cột khi rớt hàng)
-     * 1 (shrink): Co lại nếu cần
-     * 30% (basis): Kích thước cơ bản 30%, tạo 3 cột
-    */
-    flex: 0 1 30%;
+    /* Chia layout 3 cột trên desktop */
+    flex: 0 1 30%; /* grow=0 (không dãn), shrink=1 (co lại), basis=30% */
 
-    /* Giúp các card cao bằng nhau */
+    /* Giúp các thẻ cao bằng nhau, căn chỉnh nội dung bên trong */
     display: flex;
-    flex-direction: column;
+    flex-direction: column; /* Xếp nội dung (ảnh, tên, mô tả...) theo chiều dọc */
 }
 
-/* 10. Định dạng bên trong sản phẩm */
+/* --- Căn chỉnh nội dung bên trong thẻ sản phẩm --- */
+
+/* Ảnh sản phẩm */
+.product-item img {
+    width: 100%; /* Chiếm hết chiều ngang thẻ */
+    height: 300px; /* Đặt chiều cao cố định */
+    object-fit: cover; /* Giữ tỷ lệ ảnh, tự cắt ảnh vừa khung (chống méo) */
+    border-radius: 8px; /* Bo góc ảnh */
+    background-color: #eee; /* Nền mờ nếu ảnh lỗi */
+}
+
+/* Tên sản phẩm */
 .product-item h3 {
     margin-top: 15px;
-    /* Khoảng cách từ ảnh -> tên SP */
     margin-bottom: 10px;
-    color: #A0522D;
-
-    /* Tùy chỉnh font cho dễ tính toán */
+    color: #A0522D; /* Màu nâu */
     font-size: 1.2rem;
-    /* Đặt kích thước chữ */
     line-height: 1.4;
-    /* Đặt chiều cao dòng */
-
-    /* "Thứ hay": Đặt chiều cao tối thiểu 
-     * (1.2rem * 1.4 * 3 dòng = 5.04rem)
-     * Điều này làm cho các tiêu đề (2 dòng hoặc 3 dòng) 
-     * chiếm không gian chiều dọc BẰNG NHAU.
-     */
-    min-height: 5.1rem;
+    min-height: 5.1rem; /* Đảm bảo các tiêu đề chiếm chiều cao bằng nhau (cho 3 dòng) */
 }
 
-/* Đẩy giá xuống cuối card */
-.product-item p:not(.price) {
-    /* "Thứ hay": flex-grow: 1 
-     * Lệnh này bảo mô tả "Hãy dãn ra 
-     * để lấp đầy mọi không gian trống trong thẻ card".
-     * Vì các h3 đã cao bằng nhau, p cũng sẽ bắt đầu bằng nhau,
-     * và giá (price) sẽ bị đẩy xuống dưới cùng.
-     */
-    flex-grow: 1;
+/* Mô tả sản phẩm */
+.product-item p:not(.price) { /* Nhắm vào thẻ <p> KHÔNG có class="price" */
+    flex-grow: 1; /* Tự dãn ra để đẩy giá xuống dưới cùng */
     margin-top: 0;
-    font-size: 0.9rem;
-    /* Làm chữ mô tả nhỏ hơn 1 chút */
+    font-size: 0.9rem; /* Chữ nhỏ hơn */
     line-height: 1.5;
 }
 
+/* Giá sản phẩm */
 .product-item .price {
     font-weight: bold;
-    color: #B8860B;
+    color: #B8860B; /* Màu vàng đồng */
     font-size: 1.1rem;
-    margin-top: 10px;
-    /* Khoảng cách từ mô tả -> giá */
+    margin-top: 10px; /* Khoảng cách với mô tả */
 }
 
-.product-item img {
-    width: 100%;
-    height: 300px;
-    /* Đặt chiều cao cố định (bạn có thể đổi 300px) */
-
-    /* "Thứ hay": Giữ tỷ lệ, tự cắt ảnh vừa vặn, KHÔNG LÀM MÉO */
-    object-fit: cover;
-
-    border-radius: 8px;
-    background-color: #eee;
-    /* Màu nền nếu ảnh bị lỗi */
-}
-
-/* --- (Bắt đầu style cho các phần tử Bài 3) --- */
-
-/* Thanh điều khiển (tìm kiếm, thêm) */
+/* --- Khu vực điều khiển (Tìm kiếm, Lọc, Sắp xếp, Thêm) --- */
 #khu-vuc-dieu-khien {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-    gap: 15px;
+    display: flex; /* Xếp các nhóm điều khiển ngang hàng */
+    justify-content: space-between; /* Đẩy ra hai bên */
+    align-items: center; /* Căn giữa chiều dọc */
+    flex-wrap: wrap; /* Cho phép xuống hàng trên mobile */
+    margin-bottom: 20px; /* Khoảng cách với danh sách sản phẩm */
+    gap: 15px; /* Khoảng cách giữa các nhóm */
 }
 
+/* Thanh tìm kiếm */
 .search-container {
     display: flex;
-    flex-grow: 1;
-    /* Cho thanh tìm kiếm dãn ra */
+    flex-grow: 1; /* Cho phép thanh tìm kiếm dãn ra */
 }
-
 .search-container input {
-    flex-grow: 1;
+    flex-grow: 1; /* Ô input dãn ra */
     padding: 8px;
     border: 1px solid #ccc;
-    border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px; /* Bo góc trái */
 }
-
 .search-container button {
     padding: 8px 15px;
-    background-color: #DAA520;
-    /* Màu hồng chủ đạo */
+    background-color: #DAA520; /* Nút màu vàng đồng */
     color: white;
     border: none;
     cursor: pointer;
-    border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0; /* Bo góc phải */
 }
 
+/* Nút "Thêm sản phẩm mới" */
 .add-product-btn {
-    /* Nút "Thêm sản phẩm" */
-    background-color: #DAA520;
-    /* Màu xanh lá */
+    background-color: #DAA520; /* Màu vàng đồng */
     color: white;
     padding: 9px 15px;
     border: none;
@@ -237,28 +192,28 @@ main {
     font-weight: bold;
 }
 
+/* --- Hiệu ứng trượt cho Form Thêm Sản phẩm --- */
 .form-section-container {
-    margin-top: 40px; /* Giữ nguyên nếu có */
-    
-    /* Style mới cho hiệu ứng: */
-    max-height: 0; /* Ẩn form theo mặc định */
-    overflow: hidden; /* Ẩn nội dung khi co lại */
-    transition: max-height 0.5s ease-in-out; /* Hiệu ứng 0.5s */
+    margin-top: 40px;
+    max-height: 0; /* Ẩn form mặc định */
+    overflow: hidden; /* Che nội dung khi đang trượt */
+    transition: max-height 0.5s ease-in-out; /* Hiệu ứng 0.5 giây */
 }
 
+/* --- Bộ lọc giá và Nút sắp xếp (Bài 6) --- */
 .price-filters, .sort-controls {
-    display: flex;
-    gap: 10px;
+    display: flex; /* Xếp các nút/ô nhập ngang hàng */
+    gap: 10px; /* Khoảng cách giữa chúng */
 }
 .price-filters input[type="number"] {
     padding: 8px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 140px;
+    width: 140px; /* Đặt chiều rộng cố định */
 }
 .sort-controls button {
     padding: 9px 12px;
-    background-color: #5D4037; /* Màu nâu (hợp với theme vàng) */
+    background-color: #5D4037; /* Nút màu nâu */
     color: white;
     border: none;
     border-radius: 4px;
@@ -266,62 +221,61 @@ main {
     font-size: 0.9rem;
 }
 .sort-controls button:hover {
-    background-color: #4A2E2A;
+    background-color: #4A2E2A; /* Đậm hơn khi hover */
 }
 
+/* Nút Xóa bên trong thẻ sản phẩm (Bài 6) */
 .product-item .delete-btn {
-    background-color: #D9534F; /* Màu đỏ */
+    background-color: #D9534F; /* Nút màu đỏ */
     color: white;
     border: none;
     padding: 8px 10px;
     border-radius: 4px;
     cursor: pointer;
-    margin-top: 10px; /* Khoảng cách với giá */
+    margin-top: 10px;
     font-weight: bold;
 }
 .product-item .delete-btn:hover {
-    background-color: #a04949;
+    background-color: #a04949; /* Đậm hơn khi hover */
 }
 
-/* 11. Form (Dùng chung cho cả 2 form) */
+/* --- Style chung cho các Form (Thêm & Liên hệ) --- */
 form {
-    max-width: 500px;
-    /* Giới hạn độ rộng form */
-    margin: 20px auto;
-    /* Căn giữa form */
-    padding: 20px;
-    background: #ffffff;
-    border: 1px solid #FCEE8E;
-    border-radius: 8px;
+    max-width: 500px; /* Giới hạn chiều rộng */
+    margin: 20px auto; /* Căn giữa */
+    padding: 20px; /* Đệm bên trong */
+    background: #ffffff; /* Nền trắng */
+    border: 1px solid #FCEE8E; /* Viền vàng nhạt */
+    border-radius: 8px; /* Bo góc */
 }
 
-/* 13. Style cho input/textarea */
+/* Khoảng cách giữa các dòng trong form */
 form div {
     margin-bottom: 15px;
 }
 
+/* Nhãn (label) của các ô input */
 form label {
-    display: block;
+    display: block; /* Cho label nằm trên 1 dòng riêng */
     margin-bottom: 5px;
     font-weight: 500;
 }
 
+/* Style chung cho các ô nhập liệu */
 form input[type="text"],
 form input[type="email"],
 form input[type="number"],
 form textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    /* Quan trọng */
+    width: 100%; /* Chiếm hết chiều rộng form */
+    padding: 8px; /* Đệm bên trong ô */
+    border: 1px solid #ccc; /* Viền xám nhạt */
+    border-radius: 4px; /* Bo góc nhẹ */
+    box-sizing: border-box; /* Tính cả padding/border vào width */
 }
 
-/* 14. Style cho nút gửi */
+/* Nút Submit chính (Gửi/Thêm) */
 form button[type="submit"] {
-    background-color: #DAA520;
-    /* Màu hồng */
+    background-color: #DAA520; /* Màu vàng đồng */
     color: white;
     padding: 10px 20px;
     border: none;
@@ -329,109 +283,104 @@ form button[type="submit"] {
     cursor: pointer;
     font-size: 1rem;
 }
-
 form button:hover {
-    opacity: 0.8;
+    opacity: 0.8; /* Mờ đi khi hover */
 }
 
-/* Nút bấm trong form Thêm (Thêm/Hủy) */
+/* Nhóm nút trong form Thêm (Thêm/Hủy) */
 .form-buttons {
-    display: flex;
-    gap: 10px;
+    display: flex; /* Xếp nút ngang hàng */
+    gap: 10px; /* Khoảng cách giữa nút */
 }
-
 .form-buttons button {
-    flex-grow: 1;
+    flex-grow: 1; /* Cho 2 nút rộng bằng nhau */
     padding: 10px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     font-size: 1rem;
 }
-
-.form-buttons button[type="button"] {
-    /* Nút Hủy */
-    background-color: #888;
+.form-buttons button[type="button"] { /* Nút Hủy */
+    background-color: #888; /* Màu xám */
     color: white;
 }
 
+/* Khu vực hiển thị thông báo lỗi */
 #tin-nhan-loi {
-    /* Chỗ báo lỗi */
-    color: #D9534F;
+    color: #D9534F; /* Màu đỏ */
     font-size: 0.9rem;
 }
 
-/* 15. Footer */
+/* --- Phần Footer (Chân trang) --- */
 footer {
-    text-align: center;
-    padding: 20px 0;
-    margin-top: 30px;
-    background: #4E4E4E;
-    /* Nền xám đậm */
-    color: #FCEE8E;
-    /* Chữ hồng nhạt */
-    font-size: 0.9rem;
+    text-align: center; /* Căn giữa chữ */
+    padding: 20px 0; /* Đệm trên/dưới */
+    margin-top: 30px; /* Khoảng cách với phần main */
+    background: #4E4E4E; /* Nền xám đậm */
+    color: #FCEE8E; /* Chữ vàng nhạt */
+    font-size: 0.9rem; /* Chữ nhỏ hơn */
 }
 
 
-/* 16. Thiết kế Responsive (Mobile) */
-@media (max-width: 600px) {
+/* --- CSS RIÊNG CHO MÀN HÌNH NHỎ (MOBILE) --- */
+/* @media: Áp dụng các style bên trong chỉ khi điều kiện đúng */
+@media (max-width: 600px) { /* Khi chiều rộng màn hình <= 600px */
 
+    /* Cho phép header xuống dòng nếu cần */
     header {
         flex-wrap: wrap;
-        /* Cho phép header xuống dòng */
     }
 
-    /* 17. Ẩn menu desktop, Hiện nút mobile */
+    /* Ẩn menu ngang, hiện nút hamburger */
     #thanh-dieu-huong {
-        display: none;
-        width: 100%;
-        /* Cho menu chiếm 100% khi mở */
+        display: none; /* Ẩn menu */
+        width: 100%; /* Chiếm hết chiều rộng khi mở */
     }
-
     #nut-an-hien-menu {
-        display: block;
-        /* Hiện nút hamburger */
+        display: block; /* Hiện nút hamburger */
     }
 
-    /* (JS sẽ thêm class 'is-open' để hiện menu) */
+    /* Style khi menu được mở (JS thêm class 'is-open') */
     #thanh-dieu-huong.is-open {
-        display: block;
+        display: block; /* Hiện menu */
     }
-
     #thanh-dieu-huong ul {
-        flex-direction: column;
-        /* Xếp menu dọc */
-        align-items: center;
-        margin-top: 10px;
+        flex-direction: column; /* Xếp menu dọc */
+        align-items: center; /* Căn giữa các mục */
+        margin-top: 10px; /* Khoảng cách với logo */
     }
-
     #thanh-dieu-huong ul li {
-        margin: 10px 0;
+        margin: 10px 0; /* Khoảng cách dọc */
     }
 
-    /* 17. Chuyển sản phẩm sang 1 cột */
+    /* Chuyển danh sách sản phẩm thành 1 cột */
     .product-item {
-        flex: 1 1 100%;
-        /* 100% chiều rộng */
+        flex-basis: 100%; /* Chiếm 100% chiều rộng */
     }
 
+    /* Căn giữa nút Gửi của form liên hệ */
     .lien-he form div:last-child {
         text-align: center;
     }
-
+    /* Căn giữa tiêu đề form liên hệ */
     .lien-he h2 {
         text-align: center;
     }
 
-    /* Xếp chồng các nút điều khiển */
+    /* Xếp chồng các nút điều khiển (Tìm kiếm, Lọc, Thêm...) */
     #khu-vuc-dieu-khien {
-        flex-direction: column;
+        flex-direction: column; /* Xếp dọc */
     }
-
+    /* Cho các nhóm/nút chiếm 100% chiều rộng */
     #khu-vuc-dieu-khien .search-container,
+    #khu-vuc-dieu-khien .price-filters,
+    #khu-vuc-dieu-khien .sort-controls,
     #khu-vuc-dieu-khien .add-product-btn {
         width: 100%;
-        /* Các nút/thanh tìm kiếm 100% */
+    }
+    /* Cho các ô lọc giá rộng ra trên mobile */
+    .price-filters input[type="number"] {
+        flex-grow: 1; /* Để 2 ô input rộng bằng nhau */
+        width: auto; /* Bỏ width cố định */
     }
 }
