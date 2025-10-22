@@ -88,4 +88,58 @@ document.addEventListener('DOMContentLoaded', function() {
         searchInput.addEventListener('keyup', filterProducts);
     }
 
+    const addProductForm = document.getElementById('bieu-mau-them-sp');
+    const errorMsg = document.getElementById('tin-nhan-loi');
+    const productList = document.getElementById('khung-chua-san-pham');
+
+    if (addProductForm && errorMsg && productList && formContainer) {
+        
+        addProductForm.addEventListener('submit', function(event) {
+            
+            // 3. Ngăn form tải lại trang
+            event.preventDefault(); //
+
+            // 4. Lấy giá trị từ các ô input (dựa trên ID của Ducky Beauty)
+            const name = document.getElementById('ten-moi').value.trim();
+            const price = document.getElementById('gia-moi').value.trim();
+            const desc = document.getElementById('mo-ta-moi').value.trim();
+
+            // 5. Validate dữ liệu
+            // Kiểm tra Tên (không rỗng)
+            // Kiểm tra Giá (không rỗng, là Số, và > 0)
+            if (!name || !price || isNaN(price) || Number(price) <= 0) {
+                // Nếu lỗi, hiển thị thông báo
+                errorMsg.textContent = "Vui lòng nhập tên và giá hợp lệ (giá phải là số > 0).";
+                return; // Dừng hàm lại
+            }
+
+            // 6. Nếu dữ liệu hợp lệ, xóa thông báo lỗi (nếu có)
+            errorMsg.textContent = "";
+
+            // 7. Tạo phần tử HTML cho sản phẩm mới
+            const newItem = document.createElement('article');
+            newItem.className = 'product-item'; // Đặt class để CSS (Bài 2) tự động áp dụng
+
+            // Format giá cho đẹp (vd: 250000 -> 250.000)
+            const formattedPrice = Number(price).toLocaleString('vi-VN');
+
+            // 8. Dùng innerHTML để tạo cấu trúc bên trong
+            // (Chúng ta dùng ảnh placeholder cho sản phẩm mới)
+            newItem.innerHTML = `
+                <img src="https://placehold.co/400x400?text=${encodeURIComponent(name)}" alt="${name}" style="width:100%; height: 300px; object-fit: cover; background: #eee;">
+                <h3>${name}</h3>
+                <p>${desc}</p>
+                <p class="price">Giá: ${formattedPrice} VNĐ</p>
+            `;
+            // (Lưu ý: Tôi thêm style cho ảnh để khớp với CSS (height 300px, object-fit) chúng ta đã sửa)
+
+            // 9. Thêm sản phẩm mới vào ĐẦU danh sách
+            productList.prepend(newItem); //
+
+            // 10. Reset (xóa) nội dung form và ẩn form đi
+            addProductForm.reset(); //
+            formContainer.classList.add('hidden'); //
+        });
+    }
+
 });
